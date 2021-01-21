@@ -1,9 +1,8 @@
 <template>
-  <div>Tag</div>
+  <Layout>
+    <div>Tag</div>
+  </Layout>
 </template>
-
-<script lang="ts" setup>
-</script>
 
 <style lang="scss" scoped>
 

@@ -3,7 +3,7 @@ import {createRouter, createWebHashHistory, RouteRecordRaw} from "vue-router";
 import Tag from "@/views/Tag.vue";
 import Money from "@/views/Money.vue";
 import Statistic from "@/views/Statistic.vue";
-import NotFound from "@/components/NotFound.vue";
+import NotFound from "@/views/NotFound.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {path: "/", redirect: "/money"},

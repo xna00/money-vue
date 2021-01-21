@@ -1,12 +1,8 @@
 <template>
-  <div>money</div>
-  <Nav />
+  <Layout>
+    money
+  </Layout>
 </template>
-
-<script lang="ts" setup>
-import Nav from '@/components/Nav.vue'
-</script>
-
 <style lang="scss" scoped>
 
 </style>

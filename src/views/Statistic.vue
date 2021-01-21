@@ -1,5 +1,7 @@
 <template>
-  <div>statistic</div>
+  <Layout>
+    <div>statistic</div>
+  </Layout>
 </template>
 
 <script lang="ts" setup>
