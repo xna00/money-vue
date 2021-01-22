@@ -1,4 +1,5 @@
 <template>
+  <!--  {{record}}-->
   <Layout class="money-layout">
     <TagsSection v-model="record.selectedTagsId" />
     <NoteSection v-model="record.note" />
@@ -13,10 +14,6 @@ import NoteSection from "@/views/Money/NoteSection.vue";
 import CategorySection from "@/views/Money/CategorySection.vue";
 import NumberPadSection from "@/views/Money/NumberPadSection.vue";
 import {RecordItem} from "@/store/recordsStore";
-
-// // const record = {
-// const selectTagsId = ref([1]);
-// // };
 const record = ref<RecordItem>({
   selectedTagsId: [],
   note: "",

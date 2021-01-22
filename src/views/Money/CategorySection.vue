@@ -36,6 +36,7 @@ const categoryMap = {
 <style lang="scss" scoped>
 section {
   font-size: 24px;
+  background: #c4c4c4;
 
   > ul {
     display: flex;
