@@ -1,22 +1,15 @@
 <template>
   <section>
-    <label>
-      <span>备注</span>
-      <input
-        ref="input"
-        type="text"
-        placeholder="在这里添加备注"
-        :value="modelValue"
-        @change="$emit('update:modelValue',$refs.input.value)"
-      >
-    </label>
+    <Input
+      placeholder="在这里添加备注"
+      label="备注"
+      :="$attrs"
+    />
   </section>
 </template>
 
 <script lang="ts" setup>
-import {defineProps} from "vue";
-
-const props = defineProps(["modelValue"]);
+import Input from "@/components/Input.vue";
 </script>
 
 <style lang="scss" scoped>
@@ -25,22 +18,4 @@ section {
   font-size: 14px;
 }
 
-label {
-  display: flex;
-  align-items: center;
-
-  > span {
-    margin-right: 16px;
-    white-space: nowrap;
-  }
-
-  > input {
-    display: block;
-    width: 100%;
-    height: 44px;
-    background: none;
-    border: none;
-    outline: none;
-  }
-}
 </style>
