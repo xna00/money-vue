@@ -1,6 +1,6 @@
 <template>
   <div class="layout-wrapper">
-    <main>
+    <main v-bind="$attrs">
       <slot />
     </main>
     <Nav />
@@ -20,6 +20,11 @@ import Nav from "./Nav.vue";
   > main {
     flex-grow: 1;
     overflow: auto;
+
+    &.money-layout {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
 </style>
