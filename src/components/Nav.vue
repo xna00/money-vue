@@ -3,25 +3,19 @@
     <ul>
       <li>
         <router-link to="/tag">
-          <svg class="icon">
-            <use xlink:href="#tag" />
-          </svg>
+          <Icon name="tag" />
           标签
         </router-link>
       </li>
       <li>
         <router-link to="/money">
-          <svg class="icon">
-            <use xlink:href="#money" />
-          </svg>
+          <Icon name="money" />
           记账
         </router-link>
       </li>
       <li>
         <router-link to="/statistic">
-          <svg class="icon">
-            <use xlink:href="#chart" />
-          </svg>
+          <Icon name="chart" />
           统计
         </router-link>
       </li>
@@ -29,10 +23,8 @@
   </nav>
 </template>
 
-<script lang="ts">
-require("@/assets/icons/tag.svg");
-require("@/assets/icons/money.svg");
-require("@/assets/icons/chart.svg");
+<script lang="ts" setup>
+import Icon from './Icon.vue'
 </script>
 
 <style lang="scss" scoped>
