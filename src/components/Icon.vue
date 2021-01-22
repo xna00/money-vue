@@ -10,6 +10,7 @@ require("@/assets/icons/money.svg");
 require("@/assets/icons/chart.svg");
 require("@/assets/icons/left.svg");
 require("@/assets/icons/right.svg");
+require("@/assets/icons/ok.svg");
 import {defineProps} from "vue";
 
 defineProps({
