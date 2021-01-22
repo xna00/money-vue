@@ -8,6 +8,8 @@
 require("@/assets/icons/tag.svg");
 require("@/assets/icons/money.svg");
 require("@/assets/icons/chart.svg");
+require("@/assets/icons/left.svg");
+require("@/assets/icons/right.svg");
 import {defineProps} from "vue";
 
 defineProps({
