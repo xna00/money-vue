@@ -1,11 +1,11 @@
 <template>
   <section>
     <div className="output">
-      {output}
+      {{ modelValue }}
     </div>
     <div
       className="pad"
-      onClick="{onClickButtonWrapper}"
+      @Click="onClickButtonWrapper"
     >
       <button>1</button>
       <button>2</button>
@@ -30,6 +30,38 @@
 </template>
 
 <script lang="ts" setup>
+import {defineProps, defineEmit} from "vue";
+
+const props = defineProps(["modelValue"]);
+const emit = defineEmit();
+const onClickButtonWrapper = (e) => {
+  let newOutput = props.modelValue;
+  const text = (e.target as HTMLButtonElement).textContent;
+  if (text === null) {
+    return;
+  }
+  if (text.length === 1 && text >= "0" && text <= "9") {
+    if (newOutput === "0")
+      newOutput = text;
+    else
+      newOutput += text;
+  } else if (text === "." && !newOutput.includes(".")) {
+    newOutput += ".";
+  } else if (text === "清空") {
+    newOutput = "0";
+  } else if (text === "删除") {
+    newOutput = newOutput.slice(0, -1) || "0";
+  } else if (text.includes("OK")) {
+    emit("ok");
+    return;
+  } else {
+    return;
+  }
+  if (newOutput.length >= 16)
+    newOutput = newOutput.slice(0, 17);
+  console.log(newOutput);
+  emit("update:modelValue", newOutput);
+};
 </script>
 
 <style lang="scss" scoped>

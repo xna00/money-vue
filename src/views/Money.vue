@@ -4,7 +4,10 @@
     <TagsSection v-model="record.selectedTagsId" />
     <NoteSection v-model="record.note" />
     <CategorySection v-model="record.category" />
-    <NumberPadSection v-model="record.amount" />
+    <NumberPadSection
+      v-model="record.amount"
+      @ok="onOk"
+    />
   </Layout>
 </template>
 <script lang="ts" setup>
@@ -21,6 +24,9 @@ const record = ref<RecordItem>({
   amount: "0",
   createAt: 0
 });
+const onOk = ()=>{
+  console.log('ok');
+}
 </script>
 <style lang="scss" scoped>
 </style>
