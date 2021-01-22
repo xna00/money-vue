@@ -37,11 +37,13 @@ const findTag = (id: number) => {
 };
 const deleteTag = (id: number) => {
     const tag = findTag(id);
-    tag && tags.splice(tags.indexOf(tag), 1);
+    let index;
+    tag && tags.splice(index = tags.indexOf(tag), 1);
+    return index;
 };
 const updateTag = (id: number, name: string) => {
-    deleteTag(id);
-    tags.push({
+    const index = deleteTag(id) || tags.length;
+    tags.splice(index, 0, {
         id, name
     });
 };
@@ -53,6 +55,6 @@ const useTag = () => {
             deep: true
         });
     });
-    return {tags, addTag, findTag, updateTag};
+    return {tags, addTag, deleteTag, findTag, updateTag};
 };
 export {useTag};
