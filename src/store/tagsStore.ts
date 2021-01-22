@@ -25,7 +25,7 @@ const tagExist = (tagName: string) => {
 const addTag = () => {
     const tagName = window.prompt("请输入标签名");
     if (tagName === null || tagName === "") {
-        console.log()
+        console.log();
     } else if (tagExist(tagName)) {
         console.log();
     } else {
@@ -33,15 +33,18 @@ const addTag = () => {
     }
 };
 const findTag = (id: number) => {
-    return tags.find(tag => tag.id === id)
-}
-const filterTag = (id: number) => tags.filter(tag => tag.id !== id)
+    return tags.find(tag => tag.id === id);
+};
 const deleteTag = (id: number) => {
-    // setTags(filterTag(id))
-}
+    const tag = findTag(id);
+    tag && tags.splice(tags.indexOf(tag), 1);
+};
 const updateTag = (id: number, name: string) => {
-    // setTags(filterTag(id).concat({id, name}))
-}
+    deleteTag(id);
+    tags.push({
+        id, name
+    });
+};
 const useTag = () => {
     onMounted(() => {
         watch(tags, () => {
@@ -50,6 +53,6 @@ const useTag = () => {
             deep: true
         });
     });
-    return {tags, addTag};
+    return {tags, addTag, findTag, updateTag};
 };
 export {useTag};

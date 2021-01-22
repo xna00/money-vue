@@ -2,7 +2,10 @@
   <nav>
     <ul>
       <li>
-        <router-link to="/tag">
+        <router-link
+          to="/tags"
+          :class="$route.path.includes('tag') ? 'router-link-active': ''"
+        >
           <Icon name="tag" />
           标签
         </router-link>
@@ -24,7 +27,7 @@
 </template>
 
 <script lang="ts" setup>
-import Icon from './Icon.vue'
+import Icon from "./Icon.vue";
 </script>
 
 <style lang="scss" scoped>
