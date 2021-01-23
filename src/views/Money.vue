@@ -17,16 +17,18 @@ import NoteSection from "@/views/Money/NoteSection.vue";
 import CategorySection from "@/views/Money/CategorySection.vue";
 import NumberPadSection from "@/views/Money/NumberPadSection.vue";
 import {RecordItem} from "@/store/recordsStore";
+import showToast from "@/lib/showToast";
+
 const record = ref<RecordItem>({
   selectedTagsId: [],
-  note: "1234567",
+  note: "",
   category: "-",
   amount: "0",
   createAt: 0
 });
-const onOk = ()=>{
-  console.log('ok');
-}
+const onOk = () => {
+  console.log("ok");
+};
 </script>
 <style lang="scss" scoped>
 </style>

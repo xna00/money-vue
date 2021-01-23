@@ -11,7 +11,7 @@
   </Teleport>
 </template>
 <script lang="ts">
-import {onMounted, onUpdated, watch, watchEffect} from "vue";
+import {onMounted, watch} from "vue";
 
 export default {
   props: {
@@ -24,7 +24,7 @@ export default {
       default: 3000
     }
   },
-  setup(props, context) {
+  setup(props: any, context: any) {
     onMounted(() => {
       setTimeout(() => {
         context.emit("update:visible", false);

@@ -1,5 +1,7 @@
 import {reactive, watch, onMounted} from "vue";
 import {createId} from "@/lib/createId";
+import showToast from "@/lib/showToast";
+import {h} from "vue";
 
 type Tag = {
     id: number;
@@ -22,12 +24,15 @@ const tagExist = (tagName: string) => {
             return true;
     return false;
 };
+const tagToast = (message: string) => {
+    showToast({content: h("h2", message), showTime: 2000});
+};
 const addTag = () => {
     const tagName = window.prompt("请输入标签名");
     if (tagName === null || tagName === "") {
-        console.log();
+        tagToast("请输入标签名");
     } else if (tagExist(tagName)) {
-        console.log();
+        tagToast("标签已存在");
     } else {
         tags.push({id: createId(), name: tagName});
     }
@@ -35,17 +40,22 @@ const addTag = () => {
 const findTag = (id: number) => {
     return tags.find(tag => tag.id === id);
 };
-const deleteTag = (id: number) => {
+const _deleteTag = (id: number) => {
     const tag = findTag(id);
     let index;
     tag && tags.splice(index = tags.indexOf(tag), 1);
     return index;
 };
+const deleteTag = (id: number) => {
+    _deleteTag(id);
+    tagToast("删除成功");
+};
 const updateTag = (id: number, name: string) => {
-    const index = deleteTag(id) || tags.length;
+    const index = _deleteTag(id) || tags.length;
     tags.splice(index, 0, {
         id, name
     });
+    tagToast("修改成功");
 };
 const useTag = () => {
     onMounted(() => {

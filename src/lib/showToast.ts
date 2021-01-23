@@ -24,7 +24,7 @@ export default (options: { content: any; showTime: number }) => {
                         }, 1000);
                     }
                 }
-            }, {default: () => content});
+            }, {default: () =>content});
         }
     });
     app.mount(div);
