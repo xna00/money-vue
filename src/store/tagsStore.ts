@@ -16,7 +16,6 @@ const defaultTags = (): Tag[] => [
 const tags = reactive<Tag[]>([]);
 const localTags = JSON.parse(window.localStorage.getItem("tags") || JSON.stringify(defaultTags()));
 tags.push(...localTags);
-console.log(tags);
 window.localStorage.setItem("tags", JSON.stringify(tags));
 const tagExist = (tagName: string) => {
     for (let i = 0; i < tags.length; i++)
