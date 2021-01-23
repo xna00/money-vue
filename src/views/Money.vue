@@ -18,16 +18,27 @@ import CategorySection from "@/views/Money/CategorySection.vue";
 import NumberPadSection from "@/views/Money/NumberPadSection.vue";
 import {RecordItem} from "@/store/recordsStore";
 import showToast from "@/lib/showToast";
+import {useRecords} from "@/store/recordsStore";
 
-const record = ref<RecordItem>({
+const defaultRecord: RecordItem = {
   selectedTagsId: [],
   note: "",
   category: "-",
   amount: "0",
   createAt: 0
-});
+};
+const record = ref<RecordItem>(defaultRecord);
+const {addRecord} = useRecords();
 const onOk = () => {
-  console.log("ok");
+  if (record.value.selectedTagsId.length === 0) {
+    showToast({
+      content: "请选择标签",
+      showTime: 2000
+    });
+    return;
+  }
+  record.value.createAt = Date.now();
+  addRecord(record.value);
 };
 </script>
 <style lang="scss" scoped>
