@@ -32,7 +32,9 @@ import Icon from "./Icon.vue";
 
 <style lang="scss" scoped>
 @import "@/helper.scss";
-
+nav {
+  box-shadow: 0 0 3px rgba(0,0,0,0.25);
+}
 ul {
   display: flex;
   justify-content: space-around;
