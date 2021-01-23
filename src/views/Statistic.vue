@@ -13,7 +13,7 @@ const sortedGroupedRecords = ref([]);
 
 onMounted(() => {
   watchEffect(() => {
-   const groupedRecords = {}
+    const groupedRecords = {};
     records.forEach(record => {
       if (record.category !== category.value) return;
       const day = dayjs(record.createAt).format(format);
@@ -36,8 +36,16 @@ onMounted(() => {
 </script>
 <template>
   <Layout>
-    <Category v-model="category" />
-    <ul class="records">
+    <div class="category">
+      <Category v-model="category" />
+    </div>
+    <div v-if="!sortedGroupedRecords.length">
+      没有记录
+    </div>
+    <ul
+      v-else
+      class="records"
+    >
       <li
         v-for="dayRecords in sortedGroupedRecords"
         :key="dayRecords.date"
@@ -61,6 +69,9 @@ onMounted(() => {
   </Layout>
 </template>
 <style lang="scss">
+.category {
+  background: white;
+}
 .records {
   font-size: 18px;
 
