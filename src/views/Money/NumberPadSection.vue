@@ -59,7 +59,6 @@ const onClickButtonWrapper = (e) => {
   }
   if (newOutput.length >= 16)
     newOutput = newOutput.slice(0, 17);
-  console.log(newOutput);
   emit("update:modelValue", newOutput);
 };
 </script>

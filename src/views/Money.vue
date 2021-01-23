@@ -20,14 +20,14 @@ import {RecordItem} from "@/store/recordsStore";
 import showToast from "@/lib/showToast";
 import {useRecords} from "@/store/recordsStore";
 
-const defaultRecord: RecordItem = {
+const defaultRecord = () => ({
   selectedTagsId: [],
   note: "",
   category: "-",
   amount: "0",
   createAt: 0
-};
-const record = ref<RecordItem>(defaultRecord);
+});
+const record = ref<RecordItem>(JSON.parse(JSON.stringify(defaultRecord())));
 const {addRecord} = useRecords();
 const onOk = () => {
   if (record.value.selectedTagsId.length === 0) {
@@ -39,7 +39,6 @@ const onOk = () => {
   }
   record.value.createAt = Date.now();
   addRecord(record.value);
+  record.value = defaultRecord();
 };
 </script>
-<style lang="scss" scoped>
-</style>
