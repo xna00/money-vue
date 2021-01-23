@@ -6,7 +6,9 @@
         :key="tag.id"
       >
         <router-link :to="`/tag/${tag.id}`">
-          {{ tag.name }}
+          <span class="one-line">
+            {{ tag.name }}
+          </span>
           <Icon name="right" />
         </router-link>
       </li>

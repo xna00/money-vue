@@ -3,13 +3,13 @@ const path = require('path')
 
 module.exports = {
   lintOnSave: false,
-  pwa         : {
+  pwa: {
     iconPaths: {
-      favicon32     : 'favicon.svg',
-      favicon16     : 'favicon.svg',
+      favicon32: 'favicon.svg',
+      favicon16: 'favicon.svg',
       appleTouchIcon: 'favicon.svg',
-      maskIcon      : 'favicon.svg',
-      msTileImage   : 'favicon.svg'
+      maskIcon: 'favicon.svg',
+      msTileImage: 'favicon.svg'
     }
   },
   chainWebpack: config => {

@@ -25,5 +25,6 @@ defineProps({
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
+  flex-shrink: 0;
 }
 </style>
