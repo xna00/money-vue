@@ -1,5 +1,8 @@
 <template>
   <Layout>
+    <div v-if="!tags.length">
+      没有标签
+    </div>
     <ol>
       <li
         v-for="tag in tags"
