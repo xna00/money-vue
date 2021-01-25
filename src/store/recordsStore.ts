@@ -7,7 +7,7 @@ export type Note = string
 export type Amount = string
 export type CreatedAt = number
 export type RecordItem = {
-    selectedTagsId: TagId;
+    selectedTagsId: TagId[];
     category: Category;
     note: Note;
     amount: Amount;
