@@ -15,13 +15,14 @@ import Nav from "./Nav.vue";
 .layout-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
 
   > main {
     flex-grow: 1;
     overflow: auto;
 
-    &.money-layout {
+    &.money-layout,
+    &.statistic-layout {
       display: flex;
       flex-direction: column;
     }

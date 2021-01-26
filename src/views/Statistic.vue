@@ -20,7 +20,7 @@ onMounted(() => {
       if (!(day in groupedRecords)) {
         groupedRecords[day] = [];
       }
-      groupedRecords[day].push(record);
+      groupedRecords[day].unshift(record);
     });
     sortedGroupedRecords.value = Object.keys(groupedRecords).sort((a, b) => a > b ? -1 : 1).map(key => {
       return {
@@ -35,7 +35,7 @@ onMounted(() => {
 });
 </script>
 <template>
-  <Layout>
+  <Layout class="statistic-layout">
     <div class="category">
       <Category v-model="category" />
     </div>
@@ -77,6 +77,7 @@ onMounted(() => {
 }
 .records {
   font-size: 18px;
+  overflow: auto;
 
   header {
     line-height: 20px;
