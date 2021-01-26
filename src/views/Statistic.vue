@@ -22,7 +22,7 @@ onMounted(() => {
       }
       groupedRecords[day].push(record);
     });
-    sortedGroupedRecords.value = Object.keys(groupedRecords).map(key => {
+    sortedGroupedRecords.value = Object.keys(groupedRecords).sort((a, b) => a > b ? -1 : 1).map(key => {
       return {
         date: key,
         total: groupedRecords[key].reduce((currentValue, record) => {
@@ -51,7 +51,10 @@ onMounted(() => {
         :key="dayRecords.date"
       >
         <header>
-          <span>{{ dayRecords.date === dayjs().format(format) ? '今天' : dayRecords.date }}</span>
+          <span>{{ dayRecords.date === dayjs().format(format) ? '今天' : 
+            dayRecords.date === dayjs().subtract(1, 'd').format(format) ? '昨天' :
+            dayRecords.date === dayjs().subtract(2, 'd').format(format) ? '前天' :
+            dayRecords.date }}</span>
           <span>{{ dayRecords.total }}¥</span>
         </header>
         <ul class="day-records">
